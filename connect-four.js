@@ -1,6 +1,13 @@
+import { Game } from './game.js';
+
 window.addEventListener("DOMContentLoaded", () => {
 
     let game = undefined
+
+    // class Game {
+    //     //manage player names as well as creating the name of the specific game.
+    // }
+
 
     const boardholder = document.getElementById("board-holder");
     const newGame = document.getElementById("new-game");
@@ -27,12 +34,27 @@ window.addEventListener("DOMContentLoaded", () => {
         ifForInputs();
     })
 
+    newGameButton.addEventListener('click', e => {
+        game = new Game (player1Input.value, player2Input.value);
+        player1Input.value = '';
+        player2Input.value = '';
+        newGameButton.disabled = true;
+         updateUI();
 
+    });
 
-
-    class Game {
-        //manage player names as well as creating the name of the specific game.
+    function updateUI(){
+        const boardHolder = document.getElementById('board-holder');
+        const gameName = document.getElementById("game-name")
+        if(game === undefined){
+            boardHolder.classList.add('is-invisible');
+        }else{
+            boardHolder.classList.remove('is-invisible');
+            gameName.innerHTML = game.getName();
+        }
     }
+
+
 
 
 
