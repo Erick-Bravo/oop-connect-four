@@ -10,22 +10,23 @@ window.addEventListener("DOMContentLoaded", () => {
     const newGameButton = document.getElementById("new-game");
 
     const ifForInputs = () => {
-        
-    }
-
-    player1Input.addEventListener("keyup", (e) => {
-        if((player1Input.value.length !== 0) && (player2Input.value.length !== 0)) {
+        let playerOne = player1Input.value;
+        let playerTwo = player2Input.value;
+        if((playerOne.length !== 0) && (playerTwo.length !== 0)) {
 
             newGameButton.disabled = false;
         }
+     }
+
+     player1Input.addEventListener('keyup', e => {
+         ifForInputs();
+     })
+
+
+     player2Input.addEventListener('keyup', e => {
+        ifForInputs();
     })
 
-    player2Input.addEventListener("keyup", (e) => {
-        if((player1Input.value.length !== 0) && (player2Input.value.length !== 0)) {
-
-             newGameButton.disabled = false;
-        }
-    })
 
 
 
@@ -36,3 +37,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
 })
+///   refactored with in ifForInputs function
+    // player1Input.addEventListener("keyup", (e) => {
+    //     // if((player1Input.value.length !== 0) && (player2Input.value.length !== 0)) {
+
+    //     //     newGameButton.disabled = false;
+    //     // }
+    // })
+
+    // player2Input.addEventListener("keyup", (e) => {
+    //     if((player1Input.value.length !== 0) && (player2Input.value.length !== 0)) {
+
+    //          newGameButton.disabled = false;
+    //     }
+    // })
